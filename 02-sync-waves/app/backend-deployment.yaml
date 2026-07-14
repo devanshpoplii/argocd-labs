@@ -16,6 +16,10 @@ spec:
       labels:
         app: backend
     spec:
+      initContainers:
+        - name: wait
+          image: busybox:1.36
+          command: ["sh", "-c", "sleep 45"]
       containers:
         - name: backend
           image: node:20-alpine
